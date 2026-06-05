@@ -1,4 +1,5 @@
 import { Monster } from '@/features/monster/types';
+import { StatusEffect } from '@/features/combat/types';
 
 export type DungeonStage = 'FOREST' | 'GRAVEYARD' | 'CAVE' | 'SWAMP' | 'RUINS';
 export type RunStatus = 'IN_PROGRESS' | 'CLEARED' | 'DEAD';
@@ -12,6 +13,11 @@ export interface Encounter {
   monster: Monster;
   isCompleted: boolean;
   lootDrops: LootDrop[];
+  monsterCurrentHp: number;
+  playerCurrentHp: number;
+  isCombatActive: boolean;
+  turnCount: number;
+  statusEffects: StatusEffect[];
 }
 
 export interface RunState {

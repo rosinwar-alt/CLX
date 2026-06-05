@@ -1,10 +1,4 @@
-export interface StageDefinition {
-  id: string;
-  name: string;
-  levelRange: { min: number; max: number };
-  monsterPool: string[];
-  bossId: string;
-}
+import { StageDefinition } from '../types';
 
 export const STAGE_DEFINITIONS: StageDefinition[] = [
   {

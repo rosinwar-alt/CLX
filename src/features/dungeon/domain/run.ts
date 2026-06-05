@@ -19,23 +19,36 @@ export function generateRun(stageId: string, characterId: string): RunState {
   for (let i = 0; i < encounterCount; i++) {
     const definition = selectRandomMonster(pool);
     const rarity = rollMonsterRarity();
+    const monster = spawnMonster(definition, rarity);
     encounters.push({
-      monster: spawnMonster(definition, rarity),
+      monster,
       isCompleted: false,
       lootDrops: [],
+      monsterCurrentHp: monster.currentHp,
+      playerCurrentHp: 0, // Will be initialized when combat starts
+      isCombatActive: false,
+      turnCount: 0,
+      statusEffects: [],
     });
   }
 
   // 30% chance for a boss at the end
   if (rollBossAppearance()) {
     const stageDef = getStageDefinition(stageId);
-    const bossDef = getMonsterDefinition(stageDef?.bossId);
-    if (bossDef) {
-      encounters[encounters.length - 1] = {
-        monster: spawnMonster(bossDef, 'BOSS'),
-        isCompleted: false,
-        lootDrops: [],
-      };
+    if (stageDef?.bossId) {
+      const bossDef = getMonsterDefinition(stageDef.bossId);
+      if (bossDef) {
+        encounters[encounters.length - 1] = {
+          monster: spawnMonster(bossDef, 'BOSS'),
+          isCompleted: false,
+          lootDrops: [],
+          monsterCurrentHp: spawnMonster(bossDef, 'BOSS').currentHp,
+          playerCurrentHp: 0,
+          isCombatActive: false,
+          turnCount: 0,
+          statusEffects: [],
+        };
+      }
     }
   }
 

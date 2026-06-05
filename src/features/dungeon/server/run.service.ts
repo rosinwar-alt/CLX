@@ -71,6 +71,10 @@ async function finalizeRun(characterId: string, run: RunState): Promise<void> {
   activeRuns.delete(characterId);
 }
 
+export async function endRun(characterId: string): Promise<void> {
+  activeRuns.delete(characterId);
+}
+
 export async function killCharacterInRun(characterId: string): Promise<void> {
   const run = activeRuns.get(characterId);
   if (run) {

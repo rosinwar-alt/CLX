@@ -1,6 +1,14 @@
 export type MonsterCategory = 'SLIME' | 'GOBLIN' | 'UNDEAD' | 'BEAST' | 'INSECT' | 'BOSS';
 export type MonsterRarity = 'NORMAL' | 'ELITE' | 'BOSS';
 
+export interface StageDefinition {
+  id: string;
+  name: string;
+  levelRange: { min: number; max: number };
+  monsterPool: string[];
+  bossId: string;
+}
+
 export interface MonsterSkill {
   id: string;
   name: string;

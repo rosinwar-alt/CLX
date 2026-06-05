@@ -128,10 +128,10 @@ Setup initial Next.js project with:
 - Inventory system foundation implemented
 - Monster system foundation implemented
 - Dungeon system foundation implemented
+- Combat Engine implemented
 
 ## Current Phase
-Phase 2 — Core Game Domain Foundation
+Phase 3 — Class & Skill System
 
 ## Next Priority
-- Equipment stat bonuses
-- Combat Engine
+- Skill Framework foundation

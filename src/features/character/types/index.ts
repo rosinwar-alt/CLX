@@ -1,3 +1,5 @@
+import { Character as PrismaCharacter } from "@prisma/client";
+
 export type CharacterNature = "BRAVE" | "CALM" | "AGGRESSIVE" | "GENIUS" | "RESILIENT";
 
 export interface CharacterStats {
@@ -12,3 +14,5 @@ export interface DerivedResources {
   mp: number;
   stamina: number;
 }
+
+export type Character = PrismaCharacter;

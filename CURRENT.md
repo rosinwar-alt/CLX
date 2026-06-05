@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Phase 1 — Foundation
+Phase 2 — Core Game Domain Foundation
 
 ---
 
@@ -102,13 +102,36 @@ Setup initial Next.js project with:
 * Feature-based structure
 ## Completed
 - Next.js foundation initialized
-- TailwindCSS configured
-- Prisma configured
-- Supabase PostgreSQL connected
-- NextAuth foundation configured
+- Prisma + Supabase connected
+- NextAuth configured
 - Feature-based architecture established
-- Thin controller pattern established
-- Auth API structure created
-- Database schema synced successfully
-- Git repository initialized
-- First stable architecture checkpoint created
+- Character domain foundation implemented
+- Character creation API implemented
+- Nature system implemented
+- Base stat system implemented
+- Character progression system implemented (exp, level scaling)
+- Death system foundation implemented (permadeath reset)
+
+# CURRENT STATUS
+
+## Completed
+- Next.js foundation initialized
+- Prisma + Supabase connected
+- NextAuth configured
+- Feature-based architecture established
+- Character domain foundation implemented
+- Character creation API implemented
+- Nature system implemented
+- Base stat system implemented
+- Character progression system implemented
+- Death system foundation implemented
+- Inventory system foundation implemented
+- Monster system foundation implemented
+- Dungeon system foundation implemented
+
+## Current Phase
+Phase 2 — Core Game Domain Foundation
+
+## Next Priority
+- Equipment stat bonuses
+- Combat Engine

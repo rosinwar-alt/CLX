@@ -16,6 +16,37 @@ enum Nature {
   RESILIENT
 }
 
+enum ItemCategory {
+  EQUIPMENT
+  CONSUMABLE
+  MATERIAL
+  QUEST_ITEM
+}
+
+model ItemDefinition {
+  id          String       @id @default(cuid())
+  name        String       @unique
+  category    ItemCategory
+  weight      Float
+  description String
+  items       InventoryItem[]
+}
+
+model InventoryItem {
+  id               String   @id @default(cuid())
+  characterId      String
+  itemDefinitionId String
+  quantity         Int      @default(1)
+  isEquipped       Boolean  @default(false)
+  slot             String?  // head, body, weapon, offhand
+
+  character      Character     @relation(fields: [characterId], references: [id], onDelete: Cascade)
+  itemDefinition ItemDefinition @relation(fields: [itemDefinitionId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -76,8 +107,10 @@ model Character {
   mp            Int
   stamina       Int
   isDead        Boolean  @default(false)
+  gold          Int      @default(0)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items InventoryItem[]
 }
